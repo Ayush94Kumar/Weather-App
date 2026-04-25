@@ -1,0 +1,91 @@
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("./image.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+input {
+    padding: 12px 16px;
+    width: 260px;
+    border: 1px solid #fcdede;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #357ab8;
+    transform: translateY(-2px);
+}
+
+#result-card {
+    display: none;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin-top: 40px;
+    width: 90%;
+    max-width: 400px;
+    /* transition: 0s; */
+}
+
+h2, h4, h5 {
+    margin: 10px 0;
+    color: #333;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 18px;
+    color: #666;
+}
+
+h5 {
+    font-size: 20px;
+    color: #111;
+    font-weight: 500;
+}
