@@ -9,7 +9,7 @@ const feels = document.getElementById("feels");
 
 async function weather(city) {
     try {
-        const data = await fetch(`http://api.weatherapi.com/v1/current.json?key=e400deae2f8e413d9e4145139252304&q=${city}&aqi=yes`);
+        const data = await fetch(`https://api.weatherapi.com/v1/current.json?key=e400deae2f8e413d9e4145139252304&q=${city}&aqi=yes`);
         let res = await data.json();
         console.log(res);
         return res;
@@ -20,24 +20,38 @@ async function weather(city) {
 
 buttom.addEventListener("click", async () => {
     const value = input.value;
+    
+    if (!value) {
+        document.getElementById("result-card").style.display = "block"; 
+        cityname.innerHTML = "Enter City Name";
+        time.innerHTML = "";
+        temp.innerHTML = "";
+        feels.innerHTML = "";
+        wind.innerHTML = "";
+        return;
+    }
+
     const res = await weather(value);
     document.getElementById("result-card").style.display = "block";
-    if (!value) {
-        cityname.innerHTML = "Enter City Name"
+    
+    if (!res) {
+        cityname.innerHTML = "Network error. Please try again.";
         time.innerHTML = "";
         temp.innerHTML = "";
         feels.innerHTML = "";
         wind.innerHTML = "";
         return;
     }
+
     if (res.error) {
-        cityname.innerHTML = "City not found!"
+        cityname.innerHTML = "City not found!";
         time.innerHTML = "";
         temp.innerHTML = "";
         feels.innerHTML = "";
         wind.innerHTML = "";
         return;
     }
+    
     const temp_of_city = res.current.temp_c;
     cityname.innerHTML = `City:- ${res.location.name}, ${res.location.region}, ${res.location.country}`
     time.innerHTML = `Date:- ${res.current.last_updated}`
